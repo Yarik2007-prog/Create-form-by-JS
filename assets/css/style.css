@@ -98,3 +98,10 @@ p{
     border: 0;
     border-radius: 2%;
 }
+
+.error{
+    font-size: 14px;
+    color: #8f1717;
+    border: 2px solid #8f1717;
+    border-radius: 5px;
+}
