@@ -1,5 +1,11 @@
 "use Strict";
 
+class Person {
+  constructor(...args) {
+   args.forEach(({name, value}) => this[name] = value)
+  }
+}
+
 const createError = (text, input) => {
     const error = document.createElement("div");
     error.className = "error";
@@ -37,3 +43,15 @@ email.addEventListener("input", () => {
         createError("Please enter a valid email address.", email);
     }
 });
+
+button.addEventListener('click', (event) => {
+    event.preventDefault();
+    const person = new Person(
+        {name: 'firstName', value: firstName.value},
+        {name: 'lastName', value: lastName.value},
+        {name: 'displayName', value: displayName.value},
+        {name: 'email', value: email.value},
+    )
+
+    localStorage.setItem(lastName.value, JSON.stringify(person))
+}) 
