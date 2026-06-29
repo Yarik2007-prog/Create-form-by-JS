@@ -1,9 +1,9 @@
 "use Strict";
 
 class Person {
-  constructor(...args) {
-   args.forEach(({name, value}) => this[name] = value)
-  }
+    constructor(...args) {
+        args.forEach(({ name, value }) => (this[name] = value));
+    }
 }
 
 const createError = (text, input) => {
@@ -44,14 +44,21 @@ email.addEventListener("input", () => {
     }
 });
 
-button.addEventListener('click', (event) => {
+button.addEventListener("click", (event) => {
     event.preventDefault();
-    const person = new Person(
-        {name: 'firstName', value: firstName.value},
-        {name: 'lastName', value: lastName.value},
-        {name: 'displayName', value: displayName.value},
-        {name: 'email', value: email.value},
-    )
+    const fields = [...document.querySelectorAll("input")]
+        .filter(
+            (input) =>
+                !["password", "submit"].includes(
+                    input.type,
+                ),
+        )
+        .map((input) => ({
+            name: input.name,
+            value: input.value,
+        }));
 
-    localStorage.setItem(lastName.value, JSON.stringify(person))
-}) 
+    const person = new Person(...fields);
+
+    localStorage.setItem(lastName.value, JSON.stringify(person));
+});

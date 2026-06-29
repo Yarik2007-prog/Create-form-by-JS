@@ -34,14 +34,17 @@ divFormElemInputClone.className = "form-elem-input";
 
 const firstName = document.createElement("input");
 firstName.type = "text";
+firstName.name = "firstName";
 firstName.placeholder = "First Name";
 
 const displayName = document.createElement("input");
 displayName.type = "text";
+displayName.name = "displayName";
 displayName.placeholder = "Display Name";
 
 const password = document.createElement("input");
 password.type = "password";
+password.name = "password";
 password.placeholder = "Password";
 
 divFormElemInput.append(
@@ -54,14 +57,17 @@ divFormElemInput.append(
 
 const lastName = document.createElement("input");
 lastName.type = "text";
+lastName.name = "lastName";
 lastName.placeholder = "Last Name";
 
 const email = document.createElement("input");
 email.type = "email";
+email.name = "email";
 email.placeholder = "Email Address";
 
 const passwordConfirm = document.createElement("input");
 passwordConfirm.type = "password";
+passwordConfirm.name = "passwordConfirm";
 passwordConfirm.placeholder = "Password Confirmation";
 
 divFormElemInputClone.append(
